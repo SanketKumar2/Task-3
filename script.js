@@ -13,9 +13,24 @@ function deleteLast() {
 
 function calculate() {
   try {
-    let result = eval(document.getElementById('display').value);
+    let expression = document.getElementById('display').value;
+    let result = eval(expression);
     document.getElementById('display').value = result;
   } catch (e) {
     document.getElementById('display').value = 'Error';
   }
 }
+
+// BONUS: Keyboard support
+document.addEventListener('keydown', function(e) {
+  const allowedKeys = '0123456789+-*/.';
+  if (allowedKeys.includes(e.key)) {
+    appendValue(e.key);
+  } else if (e.key === 'Enter') {
+    calculate();
+  } else if (e.key === 'Backspace') {
+    deleteLast();
+  } else if (e.key.toLowerCase() === 'c') {
+    clearDisplay();
+  }
+});
