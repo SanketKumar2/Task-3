@@ -21,7 +21,6 @@ function calculate() {
   }
 }
 
-// BONUS: Keyboard support
 document.addEventListener('keydown', function(e) {
   const allowedKeys = '0123456789+-*/.';
   if (allowedKeys.includes(e.key)) {
